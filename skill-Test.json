@@ -1,0 +1,2246 @@
+{
+  "name": "Test",
+  "intents": [
+    {
+      "intent": "Insurance_Policy",
+      "examples": [
+        {
+          "text": "I want to know about various insurance policies"
+        },
+        {
+          "text": "What all insurance policies"
+        },
+        {
+          "text": "insurance services"
+        },
+        {
+          "text": "What other insurance services are there"
+        },
+        {
+          "text": "tell me about insurance policies"
+        }
+      ],
+      "description": "About the insurance policies"
+    },
+    {
+      "intent": "Configure_Out_Of_Office",
+      "examples": [
+        {
+          "text": "Add out of office in outlook"
+        },
+        {
+          "text": "Configure out of office"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Stock_Market",
+      "examples": [
+        {
+          "text": "current stock price"
+        },
+        {
+          "text": "what is the current stock market data"
+        },
+        {
+          "text": "tell me the current price of stocks"
+        },
+        {
+          "text": "what are the values of current stock"
+        },
+        {
+          "text": "tell me the stock price"
+        }
+      ],
+      "description": "About current stock price of company"
+    },
+    {
+      "intent": "Investment_Plan",
+      "examples": [
+        {
+          "text": "What are the different investment plans"
+        },
+        {
+          "text": "I want to make an investment"
+        },
+        {
+          "text": "Suggest some plans to make an investment"
+        }
+      ],
+      "description": "Getting the details about Investment plans/policies"
+    },
+    {
+      "intent": "Tone",
+      "examples": [
+        {
+          "text": "How is your Day Today"
+        }
+      ],
+      "description": "How is your Day Today"
+    },
+    {
+      "intent": "Weather_Information",
+      "examples": [
+        {
+          "text": "How is the weather in Location",
+          "mentions": [
+            {
+              "entity": "Weather",
+              "location": [
+                11,
+                19
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Hows is the Weather Today"
+        },
+        {
+          "text": "What is the weather forecast in Location"
+        },
+        {
+          "text": "How is Climate Today"
+        },
+        {
+          "text": "Delhi"
+        },
+        {
+          "text": "Tell me about Weather"
+        }
+      ],
+      "description": "Giving the Current Weather information according to Location"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Policies",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Motor Insurance",
+          "synonyms": [
+            "Motor Insurance"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Health Insurance",
+          "synonyms": [
+            "Health Insurance"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Feature",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "OOO",
+          "synonyms": [
+            "ooo",
+            "out of office"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "stock",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "stock",
+          "synonyms": [
+            "market price"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Weather",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Weather",
+          "synonyms": [
+            "forecast",
+            "climate",
+            "rainy",
+            "windy"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "weather ",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Outlook_Version",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Outlook_7",
+          "synonyms": [
+            "Outlook 7",
+            "Outlook 2007"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Outlook_10",
+          "synonyms": [
+            "Outlook 10",
+            "Outlook 2010"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-location",
+      "values": []
+    },
+    {
+      "entity": "Product",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Mobile Phone",
+          "synonyms": [
+            "Mobile, iPhone"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Head Phone",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Bag",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Laptop",
+          "synonyms": [
+            "MacBook"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Investment_Types",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Mutual_Fund",
+          "synonyms": [
+            "Mutual Fund"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Recurring",
+          "synonyms": [
+            "Recurring"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "SIP",
+          "synonyms": [
+            "SIP"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "FD",
+          "synonyms": [
+            "FD",
+            "Fixed Deposit"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Company",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "VRSK",
+          "synonyms": [
+            "verisk analytics",
+            "verisk",
+            "Verisk Analytics Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "VOD",
+          "synonyms": [
+            "vodafone group",
+            "vodafone",
+            "Vodafone Group PLC"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "VIAB",
+          "synonyms": [
+            "viacom",
+            "Viacom Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "V",
+          "synonyms": [
+            "Visa"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "UTX",
+          "synonyms": [
+            "united tech",
+            "United Technologies"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "UNH",
+          "synonyms": [
+            "united health",
+            "UnitedHealth"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ULTA",
+          "synonyms": [
+            "ulta",
+            "ulta beauty",
+            "Ulta Beauty Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "TXN",
+          "synonyms": [
+            "texas instruments",
+            "Texas Instruments Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "TSLA",
+          "synonyms": [
+            "tesla",
+            "Tesla Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "TSCO",
+          "synonyms": [
+            "tractor supply",
+            "tractor",
+            "Tractor Supply Co"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "TRV",
+          "synonyms": [
+            "travelers companies",
+            "travelers",
+            "Travelers Companies Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "TMUS",
+          "synonyms": [
+            "t-mobile",
+            "tmobile",
+            "t mobile",
+            "T-Mobile US Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "SYMC",
+          "synonyms": [
+            "symantech",
+            "Symantec Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "SWKS",
+          "synonyms": [
+            "skyworks solutions",
+            "skyworks",
+            "Skyworks Solutions Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "STX",
+          "synonyms": [
+            "seagate tech",
+            "seagate",
+            "Seagate Technology PLC"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "SIRI",
+          "synonyms": [
+            "sirius holdings",
+            "sirius",
+            "Sirius XM Holdings Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "SHPG",
+          "synonyms": [
+            "shire",
+            "Shire PLC"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "SBUX",
+          "synonyms": [
+            "starbucks",
+            "Starbucks Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ROST",
+          "synonyms": [
+            "ross stores",
+            "ross",
+            "Ross Stores Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "REGN",
+          "synonyms": [
+            "regeneron pharma",
+            "regeneron",
+            "Regeneron Pharmaceuticals Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "QVCA",
+          "synonyms": [
+            "liberty interactive",
+            "liberty",
+            "Liberty Interactive Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "QCOM",
+          "synonyms": [
+            "qualcomm",
+            "Qualcomm Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "PYPL",
+          "synonyms": [
+            "paypal",
+            "paypal holdings",
+            "PayPal Holdings Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "PG",
+          "synonyms": [
+            "proctor and gamble",
+            "p&g",
+            "png",
+            "Procter & Gamble"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "PFE",
+          "synonyms": [
+            "Pfizer"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "PCLN",
+          "synonyms": [
+            "priceline grp",
+            "priceline group",
+            "priceline",
+            "The Priceline Group"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "PCAR",
+          "synonyms": [
+            "paccar",
+            "PACCAR Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "PAYX",
+          "synonyms": [
+            "paychex",
+            "Paychex Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ORLY",
+          "synonyms": [
+            "oreilly automotive",
+            "oreilly auto",
+            "oreilly",
+            "O'Reilly Automotive Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "NVDA",
+          "synonyms": [
+            "nvidia",
+            "NVIDIA Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "NTES",
+          "synonyms": [
+            "netease",
+            "NetEase Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "NKE",
+          "synonyms": [
+            "Nike"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "NFLX",
+          "synonyms": [
+            "netflix",
+            "Netflix Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "NCLH",
+          "synonyms": [
+            "norwegian cruise line holdings",
+            "norwegian cruise line",
+            "norwegian cruise",
+            "Norwegian Cruise Line Holdings Ltd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MYL",
+          "synonyms": [
+            "mylan",
+            "Mylan NV"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MXIM",
+          "synonyms": [
+            "maxim integrated products",
+            "maxim",
+            "Maxim Integrated Products Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MU",
+          "synonyms": [
+            "micron technology",
+            "micron tech",
+            "micron",
+            "Micron Technology Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MRK",
+          "synonyms": [
+            "Merck"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MNST",
+          "synonyms": [
+            "monster beverage",
+            "monster",
+            "Monster Beverage Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MMM",
+          "synonyms": [
+            "3M"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MELI",
+          "synonyms": [
+            "mercadolibre",
+            "MercadoLibre Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MDLZ",
+          "synonyms": [
+            "mondelez international",
+            "mondelez",
+            "Mondelez International Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MCHP",
+          "synonyms": [
+            "microchip tech",
+            "microchip",
+            "Microchip Technology Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MCD",
+          "synonyms": [
+            "macdonalds",
+            "mcdonalds",
+            "macd",
+            "McDonald's"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MAT",
+          "synonyms": [
+            "mattel",
+            "Mattel Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MAR",
+          "synonyms": [
+            "marriott international",
+            "marriott",
+            "Marriott International Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "LRCX",
+          "synonyms": [
+            "lam",
+            "lam research",
+            "Lam Research Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "LILAK",
+          "synonyms": [
+            "liberty latin america",
+            "liberty la",
+            "Liberty Latin America Ltd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "LILA",
+          "synonyms": [
+            "liberty latin america",
+            "liberty la",
+            "Liberty Latin America Ltd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "LBTYK",
+          "synonyms": [
+            "liberty",
+            "liberty global",
+            "Liberty Global PLC"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "LBTYA",
+          "synonyms": [
+            "liberty",
+            "liberty global",
+            "Liberty Global PLC"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "KO",
+          "synonyms": [
+            "coca cola",
+            "Coca-Cola"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "KLAC",
+          "synonyms": [
+            "kla tencor",
+            "KLA-Tencor Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "KHC",
+          "synonyms": [
+            "kraft heinz",
+            "heinz",
+            "kraft",
+            "Kraft Heinz Co"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "JPM",
+          "synonyms": [
+            "jp morgan chase",
+            "jpmc",
+            "jpmorgan",
+            "JPMorgan Chase"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "JNJ",
+          "synonyms": [
+            "johnson and johnson",
+            "jj",
+            "j&j",
+            "Johnson & Johnson"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "JD",
+          "synonyms": [
+            "jd.com",
+            "jd",
+            "JD.com Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "JBHT",
+          "synonyms": [
+            "jbhunt transport",
+            "jb hunt transport",
+            "jbhunt",
+            "J.B. Hunt Transport Services Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ISRG",
+          "synonyms": [
+            "intuitive",
+            "intuitive surgical",
+            "Intuitive Surgical Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "INTU",
+          "synonyms": [
+            "intuit",
+            "Intuit Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "INTC",
+          "synonyms": [
+            "intel",
+            "Intel Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "INCY",
+          "synonyms": [
+            "incyte",
+            "Incyte Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ILMN",
+          "synonyms": [
+            "illumina",
+            "Illumina Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "IDXX",
+          "synonyms": [
+            "idexx lab",
+            "idexx",
+            "IDEXX Laboratories Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "IBM",
+          "synonyms": [
+            "IBM"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "HSIC",
+          "synonyms": [
+            "henry schein",
+            "henryschein",
+            "Henry Schein Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "HOLX",
+          "synonyms": [
+            "hologic",
+            "Hologic Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "HD",
+          "synonyms": [
+            "homedepot",
+            "Home Depot"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "HAS",
+          "synonyms": [
+            "hasbro",
+            "Hasbro Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "GS",
+          "synonyms": [
+            "goldman",
+            "Goldman Sachs"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "GOOGL",
+          "synonyms": [
+            "google",
+            "alphabet a",
+            "alphabet",
+            "Alphabet Class A"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "GOOG",
+          "synonyms": [
+            "alphabet c",
+            "alphabet",
+            "Alphabet Class C"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "GILD",
+          "synonyms": [
+            "gilead sciences",
+            "gilead",
+            "Gilead Sciences Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "GE",
+          "synonyms": [
+            "General Electric"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "FOXA",
+          "synonyms": [
+            "foxa",
+            "fox",
+            "21st century fox",
+            "Twenty-First Century Fox Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "FOX",
+          "synonyms": [
+            "fox",
+            "21st century fox",
+            "Twenty-First Century Fox Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "FISV",
+          "synonyms": [
+            "fiserv",
+            "Fiserv Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "FB",
+          "synonyms": [
+            "Facebook"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "FAST",
+          "synonyms": [
+            "fastenal",
+            "Fastenal Co"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "EXPE",
+          "synonyms": [
+            "expedia",
+            "Expedia Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ESRX",
+          "synonyms": [
+            "expressscripts",
+            "express scripts",
+            "Express Scripts Holding Co"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "EBAY",
+          "synonyms": [
+            "ebay",
+            "eBay Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "EA",
+          "synonyms": [
+            "Electronic Arts"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "DWDP",
+          "synonyms": [
+            "dowdupont",
+            "DowDuPont Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "DLTR",
+          "synonyms": [
+            "dollar",
+            "dollartree",
+            "Dollar Tree Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "DISH",
+          "synonyms": [
+            "dish network",
+            "DISH Network Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "DISCK",
+          "synonyms": [
+            "discovery",
+            "Discovery Communications Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "DISCA",
+          "synonyms": [
+            "discovery",
+            "Discovery Communications Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "DIS",
+          "synonyms": [
+            "Disney"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CVX",
+          "synonyms": [
+            "Chevron"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CTXS",
+          "synonyms": [
+            "citrix",
+            "Citrix Systems Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CTSH",
+          "synonyms": [
+            "cts",
+            "cognizant",
+            "Cognizant Technology Solutions Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CTRP",
+          "synonyms": [
+            "ctrip international",
+            "ctrip",
+            "Ctrip.Com International Ltd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CTAS",
+          "synonyms": [
+            "cintas",
+            "Cintas Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "COST",
+          "synonyms": [
+            "costco",
+            "Costco Wholesale Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CHTR",
+          "synonyms": [
+            "charter comm",
+            "charter",
+            "Charter Communications Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CMCSA",
+          "synonyms": [
+            "comcast",
+            "Comcast Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CHKP",
+          "synonyms": [
+            "check point software",
+            "Check Point Software Technologies Ltd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CELG",
+          "synonyms": [
+            "celgene",
+            "Celgene Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "BMRN",
+          "synonyms": [
+            "biomarin",
+            "Biomarin Pharmaceutical Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "BIIB",
+          "synonyms": [
+            "biogen",
+            "Biogen Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "BIDU",
+          "synonyms": [
+            "baidu",
+            "Baidu Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "AXP",
+          "synonyms": [
+            "amex",
+            "American Express"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "AVGO",
+          "synonyms": [
+            "broadcom",
+            "Broadcom Ltd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ATVI",
+          "synonyms": [
+            "blizzard",
+            "activision blizzard",
+            "activision",
+            "Activision Blizzard Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "AMZN",
+          "synonyms": [
+            "amazon",
+            "Amazon.com Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "AMGN",
+          "synonyms": [
+            "amgen",
+            "Amgen Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "AAL",
+          "synonyms": [
+            "AmericanAirlines GroupInc",
+            "AmericanAirlinesGroupInc",
+            "AAL",
+            "American Airlines Group Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ALXN",
+          "synonyms": [
+            "Alexion",
+            "Alexion Pharmaceuticals Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ALGN",
+          "synonyms": [
+            "align",
+            "Align Technology Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "AAPL",
+          "synonyms": [
+            "apple",
+            "Apple Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CAT",
+          "synonyms": [
+            "Caterpillar"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CA",
+          "synonyms": [
+            "CA Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "BA",
+          "synonyms": [
+            "Boeing"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ADSK",
+          "synonyms": [
+            "Autodesk Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "AKAM",
+          "synonyms": [
+            "akamai",
+            "Akamai Technologies Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "AMAT",
+          "synonyms": [
+            "applied material",
+            "Applied Materials Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CSX",
+          "synonyms": [
+            "csx",
+            "CSX Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CSCO",
+          "synonyms": [
+            "cisco",
+            "Cisco Systems Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "CERN",
+          "synonyms": [
+            "cerner",
+            "Cerner Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ADP",
+          "synonyms": [
+            "automatic data",
+            "Automatic Data Processing Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ADI",
+          "synonyms": [
+            "analog devices",
+            "analog",
+            "Analog Devices Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ADBE",
+          "synonyms": [
+            "adobe",
+            "Adobe Systems Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "MSFT",
+          "synonyms": [
+            "MSFT",
+            "microsoft",
+            "Microsoft Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "XRAY",
+          "synonyms": [
+            "dentsply sirona",
+            "dentsply",
+            "Dentsply Sirona Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "XOM",
+          "synonyms": [
+            "exxon",
+            "Exxon Mobil"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "XLNX",
+          "synonyms": [
+            "xilinx",
+            "Xilinx Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "WYNN",
+          "synonyms": [
+            "wynn",
+            "wynn resorts",
+            "Wynn Resorts Ltd"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "WMT",
+          "synonyms": [
+            "walmart",
+            "Wal-Mart"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "WDC",
+          "synonyms": [
+            "western digital",
+            "wd",
+            "Western Digital Corp"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "WBA",
+          "synonyms": [
+            "walgreen boots alliance",
+            "walgreens boots",
+            "walgreens",
+            "Walgreens Boots Alliance Inc"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "VZ",
+          "synonyms": [
+            "Verizon"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "VRTX",
+          "synonyms": [
+            "vertex pharmaceuticals",
+            "vertex pharma",
+            "Vertex Pharmaceuticals Inc"
+          ]
+        }
+      ]
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-07-10"
+    }
+  },
+  "skill_id": "4f9af0d9-5d9a-454e-a6b9-032b7ebbdebe",
+  "webhooks": [
+    {
+      "url": "https://eu-gb.functions.cloud.ibm.com/api/v1/web/watsonbot05%40gmail.com_dev/Assistant-Function/Weather-Connection.json",
+      "name": "main_webhook",
+      "headers": []
+    }
+  ],
+  "description": "Including Banking, Insurance, IT UseCases and Features like Weather, Stock Market, Location",
+  "dialog_nodes": [
+    {
+      "type": "response_condition",
+      "title": "response_6_1565333963709",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<head><b> SIP is a method of investing a fixed sum, regularly, in a mutual fund scheme. SIP allows an investor to buy units regularly on a specific date of the month. This will help in building wealth in the long term.</b><br><b>You can use Systematic Investment Plan Calculator</b><title>Calculator</title><style></style><script></script></head><body><iframe src=https://widgetscode.com/wc/sip/all?skin=purple0 style='width:280px;height:320px;margin:0;'frameborder=0></iframe></body></html>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1565090388516",
+      "conditions": "@Investment_Types:SIP",
+      "dialog_node": "response_6_1565333963709"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Health Insurance is a ‘must-to-have’ element for everyone. We offer you a hassle-free online health insurance policy that gives you ‘freedom from huge medical losses’. It empowers you with best medical assistance whether it is a physical damage or loss of health and supports you financially."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1564401504608",
+      "metadata": {},
+      "conditions": "@Policies:(Health Insurance)",
+      "dialog_node": "node_3_1564402383994",
+      "previous_sibling": "node_1_1564402031350"
+    },
+    {
+      "type": "standard",
+      "title": "Motor Insurance",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "We offers Motor Insurance for various categories such as Car Insurance, Two Wheeler Policy, Commercial Vehicle Insurance, On Road-Protector Coverage, Value-Auto Coverage. Its primary use is to provide financial protection against physical damage or bodily injury resulting from traffic collisions and against liability that could also arise from incidents in a vehicle. Vehicle insurance may additionally offer financial protection against theft of the vehicle, and against damage to the vehicle sustained from events other than traffic collisions, such as keying, weather or natural disasters, and damage sustained by colliding with stationary objects. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1564401504608",
+      "metadata": {},
+      "conditions": "@Policies:(Motor Insurance)",
+      "dialog_node": "node_1_1564402031350"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Please Enter the location"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_6_1563799598952",
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_8_1563799598952",
+      "previous_sibling": "handler_7_1563799598952"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1563799598952",
+      "context": {
+        "Location": "@sys-location"
+      },
+      "metadata": {},
+      "conditions": "@sys-location",
+      "event_name": "input",
+      "dialog_node": "handler_7_1563799598952"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_3_1565698655179",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "$response"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1565679659774",
+      "disabled": true,
+      "conditions": "true",
+      "dialog_node": "response_3_1565698655179",
+      "previous_sibling": "node_9_1565779676939"
+    },
+    {
+      "type": "standard",
+      "title": "Response 1",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "$response"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1565679659774",
+      "conditions": "true",
+      "dialog_node": "node_9_1565779676939"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_8_1564753868135",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "$response"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1564753796787",
+      "conditions": "true",
+      "dialog_node": "response_8_1564753868135"
+    },
+    {
+      "type": "standard",
+      "title": "Response",
+      "output": {
+        "text": {}
+      },
+      "parent": "node_4_1565677397291",
+      "actions": [
+        {
+          "name": "/watsonbot05%40gmail.com_dev/Assistant-Function/Tone_Analyzer",
+          "type": "cloud_function",
+          "parameters": {
+            "text": "<? $text ?>"
+          },
+          "credentials": "$credentials",
+          "result_variable": "$response"
+        }
+      ],
+      "context": {
+        "credentials": {
+          "api_key": "f2a23cdb-5947-4a67-a960-4eef2a9d2a5d:dfXh7zrBUgXqkG51zTGmL3gaXUi57KToRgG7HAOx8qWbgmb0U4E1UcMo7Aul2Hh6"
+        }
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_9_1565779676939"
+      },
+      "conditions": "true",
+      "dialog_node": "node_5_1565679659774"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_1_1567149334626",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "\"API is not Working\""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1567149292583",
+      "conditions": "anything_else",
+      "dialog_node": "response_1_1567149334626",
+      "previous_sibling": "response_10_1567149332085"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_10_1567149332085",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "$webhook_result_1"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1567149292583",
+      "conditions": "$webhook_result_1",
+      "dialog_node": "response_10_1567149332085"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "$response"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1563804729901",
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_1_1564402941736"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1563799055926",
+      "metadata": {},
+      "variable": "$Location",
+      "dialog_node": "slot_6_1563799598952",
+      "previous_sibling": "node_1_1563804729901"
+    },
+    {
+      "type": "standard",
+      "title": "Response",
+      "output": {},
+      "parent": "node_1_1563799055926",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "true",
+      "dialog_node": "node_1_1563804729901",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Kindly specify the name of the company."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1565006122513",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1565006122534",
+      "previous_sibling": "handler_2_1565006122534"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_4_1565006122513",
+      "context": {
+        "Company": "@Company"
+      },
+      "conditions": "@Company",
+      "event_name": "input",
+      "dialog_node": "handler_2_1565006122534"
+    },
+    {
+      "type": "standard",
+      "title": "Tone",
+      "output": {
+        "generic": []
+      },
+      "parent": "node_10_1565628437176",
+      "context": {
+        "text": "<?input.text?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1565679659774"
+      },
+      "conditions": "true",
+      "user_label": "Response",
+      "dialog_node": "node_4_1565677397291"
+    },
+    {
+      "type": "standard",
+      "parent": "node_5_1567577073371",
+      "dialog_node": "node_3_1567581455211",
+      "previous_sibling": "node_1_1567581451203"
+    },
+    {
+      "type": "standard",
+      "parent": "node_5_1567577073371",
+      "dialog_node": "node_1_1567581451203"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1564484069556",
+      "disabled": true,
+      "metadata": {},
+      "dialog_node": "node_3_1564484111317",
+      "previous_sibling": "handler_4_1564484129166"
+    },
+    {
+      "type": "event_handler",
+      "parent": "node_2_1564484069556",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1564484129166",
+      "previous_sibling": "node_3_1564753796787"
+    },
+    {
+      "type": "standard",
+      "title": "Response",
+      "parent": "node_2_1564484069556",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "true",
+      "dialog_node": "node_3_1564753796787",
+      "previous_sibling": "slot_4_1565006122513"
+    },
+    {
+      "type": "slot",
+      "parent": "node_2_1564484069556",
+      "variable": "$Company",
+      "dialog_node": "slot_4_1565006122513"
+    },
+    {
+      "type": "standard",
+      "title": "Default Node",
+      "output": {
+        "generic": [
+          {
+            "title": "We offer listed Investment Plans:",
+            "options": [
+              {
+                "label": "Mutual Fund",
+                "value": {
+                  "input": {
+                    "text": "Mutual Fund"
+                  }
+                }
+              },
+              {
+                "label": "Recurring Deposit",
+                "value": {
+                  "input": {
+                    "text": "Recurring "
+                  }
+                }
+              },
+              {
+                "label": "Fixed Deposit",
+                "value": {
+                  "input": {
+                    "text": "FD"
+                  }
+                }
+              },
+              {
+                "label": "SIP",
+                "value": {
+                  "input": {
+                    "text": "SIP"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_3_1565084483792",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_7_1565084847560"
+      },
+      "conditions": "true",
+      "dialog_node": "node_8_1565090936998",
+      "previous_sibling": "node_7_1565090388516"
+    },
+    {
+      "type": "standard",
+      "title": "SIP",
+      "parent": "node_3_1565084483792",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@Investment_Types:SIP",
+      "dialog_node": "node_7_1565090388516",
+      "previous_sibling": "node_10_1565089550455"
+    },
+    {
+      "type": "standard",
+      "title": "Mutual Fund",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<head>\n<b> When it comes to Mutual Funds, you can make money in three possible ways: Income earned from dividends on stocks and interest on bonds. A mutual fund pays out nearly all of the net income it receives over the year (in the form of a distribution). An increase in the price of securities (called a 'capital gain'). </b><br>\n<b>You can use Interest & Effective Rate of Return Calculator</b>\n<title>Calculator</title>\n<style>\n</style>\n<script>\n\n</script>\n</head>\n<body>\n<iframe src=https://widgetscode.com/wc/int/all?skin=aqua0 style='width:280px;height:340px;margin:0;'frameborder=0></iframe>\n</body>\n</html>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1565084483792",
+      "conditions": "@Investment_Types:Mutual_Fund",
+      "dialog_node": "node_7_1565084847560",
+      "previous_sibling": "response_10_1565332645953"
+    },
+    {
+      "type": "standard",
+      "title": "Recurring Deposit",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<head>\n<b> A recurring deposit is a special kind of term deposit offered by banks in India which help people with regular incomes to deposit a fixed amount every month into their recurring deposit account and earn interest at the rate applicable to fixed deposits.</b><br>\n\n<b>You can use Recurring Deposit Calculator</b>\n<title>Calculator</title>\n<style>\n</style>\n<script>\n\n</script>\n</head>\n<body>\n<iframe src=https://widgetscode.com/wc/rdm/all?skin=dblue0 style='width:280px;height:320px;margin:0;'frameborder=0></iframe>\n</body>\n</html>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1565084483792",
+      "conditions": "@Investment_Types:Recurring",
+      "dialog_node": "node_1_1565089026032",
+      "previous_sibling": "node_7_1565084847560"
+    },
+    {
+      "type": "standard",
+      "title": "Fixed Deposit",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<head>\n<b> A fixed deposit (FD) is a financial instrument provided by banks or NBFCs which provides investors a higher rate of interest than a regular savings account, until the given maturity date. It may or may not require the creation of a separate account.</b><br>\n\n<b>You can use Interest & Effective Rate of Return Calculator</b>\n<title>Calculator</title>\n<style>\n</style>\n<script>\n\n</script>\n</head>\n<body>\n<iframe src=https://widgetscode.com/wc/int/all?skin=gold0 style='width:280px;height:340px;margin:0;'frameborder=0></iframe>\n</body>\n</html>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1565084483792",
+      "conditions": "@Investment_Types:FD",
+      "dialog_node": "node_10_1565089550455",
+      "previous_sibling": "node_1_1565089026032"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_10_1565332645953",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "<head><b> SIP is a method of investing a fixed sum, regularly, in a mutual fund scheme. SIP allows an investor to buy units regularly on a specific date of the month. This will help in building wealth in the long term.</b><br><b>You can use Systematic Investment Plan Calculator</b><title>Calculator</title><style></style><script></script></head><body><iframe src=https://widgetscode.com/wc/sip/all?skin=purple0 style='width:280px;height:320px;margin:0;'frameborder=0></iframe></body></html>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1565084483792",
+      "disabled": true,
+      "conditions": "@Investment_Types:SIP",
+      "dialog_node": "response_10_1565332645953"
+    },
+    {
+      "type": "standard",
+      "title": "Insurance Policy",
+      "output": {
+        "generic": [
+          {
+            "title": "We offer Insurance Services/Policies for various domains:",
+            "options": [
+              {
+                "label": "Motor Insurance",
+                "value": {
+                  "input": {
+                    "text": "Motor Insurance"
+                  }
+                }
+              },
+              {
+                "label": "Health Insurance",
+                "value": {
+                  "input": {
+                    "text": "Health Insurance"
+                  }
+                }
+              }
+            ],
+            "description": "Insurance Policy",
+            "response_type": "option"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "#Insurance_Policy",
+      "digress_in": "returns",
+      "dialog_node": "node_1_1564401504608",
+      "digress_out": "allow_all",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Insurance Policy",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Insurance_Policy",
+      "dialog_node": "node_5_1567577073371",
+      "previous_sibling": "node_1_1564401504608"
+    },
+    {
+      "type": "frame",
+      "title": "Tone_Analyzer",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Superb Thanks for providing us your purchase details. How was overall experience?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {},
+      "conditions": "@Product",
+      "dialog_node": "node_10_1565628437176",
+      "previous_sibling": "node_7_1566390218563"
+    },
+    {
+      "type": "standard",
+      "title": "Configure Out Of Office in Outlook",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sure, I will be glad to assist you on this request.<br><br>\nIf you can specify the version of Outlook client available on your computer.<br><br><mct:input>Outlook 2013</mct:input><br><mct:input>Outlook 2016</mct:input><br><mct:input>Not Sure</mct:input>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Configure_Out_Of_Office",
+      "dialog_node": "node_7_1566390218563",
+      "previous_sibling": "node_7_1567149292583"
+    },
+    {
+      "type": "standard",
+      "title": "Insurance Policy -",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "We offer Insurance Services/Policies for various domains:"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "#Insurance_Policy",
+      "dialog_node": "node_6_1564402614868",
+      "previous_sibling": "node_1_1563799055926"
+    },
+    {
+      "type": "standard",
+      "title": "Investment Plans",
+      "output": {
+        "generic": []
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#Investment_Plan || @Investment_Types",
+      "digress_in": "not_available",
+      "dialog_node": "node_3_1565084483792",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_10_1565628437176"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "digress_in": "returns",
+      "dialog_node": "Anything else",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_6_1564402614868"
+    },
+    {
+      "type": "standard",
+      "title": "Weather_test",
+      "actions": [
+        {
+          "name": "main_webhook",
+          "type": "webhook",
+          "parameters": {
+            "object_of_interest": "London"
+          },
+          "result_variable": "webhook_result_1"
+        }
+      ],
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#Weather_Information",
+      "dialog_node": "node_7_1567149292583",
+      "previous_sibling": "node_5_1567577073371"
+    },
+    {
+      "type": "frame",
+      "title": "Weather",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "actions": [
+        {
+          "name": "/watsonbot05%40gmail.com_dev/Assistant-Function/Weather-Connection",
+          "type": "cloud_function",
+          "parameters": {
+            "object_of_interest": "<? $Location ?>"
+          },
+          "credentials": "$credentials",
+          "result_variable": "$response"
+        }
+      ],
+      "context": {
+        "credentials": {
+          "api_key": "f2a23cdb-5947-4a67-a960-4eef2a9d2a5d:dfXh7zrBUgXqkG51zTGmL3gaXUi57KToRgG7HAOx8qWbgmb0U4E1UcMo7Aul2Hh6"
+        },
+        "object_of_interest": "@object_of_interest"
+      },
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1563804729901"
+      },
+      "conditions": "#Weather_Information",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1563799055926",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_2_1564484069556",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "frame",
+      "title": "Stock Market data",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "actions": [
+        {
+          "name": "/watsonbot05%40gmail.com_dev/Assistant-Function/Stock_Function",
+          "type": "cloud_function",
+          "parameters": {
+            "symbol": "<? $Company ?>"
+          },
+          "credentials": "$credentials",
+          "result_variable": "$response"
+        }
+      ],
+      "context": {
+        "symbol": "@Company",
+        "credentials": {
+          "api_key": "f2a23cdb-5947-4a67-a960-4eef2a9d2a5d:dfXh7zrBUgXqkG51zTGmL3gaXUi57KToRgG7HAOx8qWbgmb0U4E1UcMo7Aul2Hh6"
+        }
+      },
+      "metadata": {
+        "fallback": "leave",
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_3_1564753796787"
+      },
+      "conditions": "#Stock_Market",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_2_1564484069556",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_3_1565084483792",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "4f9af0d9-5d9a-454e-a6b9-032b7ebbdebe",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
