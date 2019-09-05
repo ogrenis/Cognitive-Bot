@@ -1,0 +1,13 @@
+let rp = require('request-promise')
+function main(params) {
+    const options = {     
+        uri: "https://cloud.iexapis.com/stable/stock/" + encodeURIComponent(params.symbol) + "/quote?token=pk_1a5fa86b424845149eaddf14426b2d56" ,
+        json: true   
+    }
+    return rp(options)
+    .then(res => {
+        Stock_Price  = "Company Name : " + res.companyName + ",  Open Price : " + res.open+ ", Close Price : " + res.close + ", Current Price : " + res.latestPrice + ", Low Value : "+ res.low + ", High Value : " + res.high       
+        return { Stock_Price            
+        } 
+    })
+}
