@@ -1,0 +1,228 @@
+{
+  "name": "Test",
+  "intents": [
+    {
+      "intent": "Weather_Information",
+      "examples": [
+        {
+          "text": "How is the weather in Location"
+        },
+        {
+          "text": "Hows is the Weather Today"
+        },
+        {
+          "text": "What is the weather forecast in Location"
+        },
+        {
+          "text": "How is Climate Today"
+        },
+        {
+          "text": "Tell me about Weather"
+        }
+      ],
+      "description": "Giving the Current Weather information according to Location"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-location",
+      "values": []
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-07-10"
+    }
+  },
+  "skill_id": "945aaec1-0727-4232-a071-7964f9fd559e",
+  "webhooks": [
+    {
+      "url": "https://eu-gb.functions.cloud.ibm.com/api/v1/web/watsonbot05%40gmail.com_dev/Assistant-Function/Weather-Connection.json",
+      "name": "main_webhook",
+      "headers": []
+    }
+  ],
+  "description": "Including Banking, Insurance, IT UseCases and Features like Weather, Stock Market, Location",
+  "dialog_nodes": [
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "$response"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1563804729901",
+      "metadata": {},
+      "conditions": "true",
+      "dialog_node": "node_1_1564402941736"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Please Enter the location"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_6_1563799598952",
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_8_1563799598952",
+      "previous_sibling": "handler_7_1563799598952"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1563799598952",
+      "context": {
+        "Location": "@sys-location"
+      },
+      "metadata": {},
+      "conditions": "@sys-location",
+      "event_name": "input",
+      "dialog_node": "handler_7_1563799598952"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_1_1563799055926",
+      "metadata": {},
+      "variable": "$Location",
+      "dialog_node": "slot_6_1563799598952",
+      "previous_sibling": "node_1_1563804729901"
+    },
+    {
+      "type": "standard",
+      "title": "Response",
+      "output": {},
+      "parent": "node_1_1563799055926",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "true",
+      "dialog_node": "node_1_1563804729901",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "frame",
+      "title": "Weather",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "actions": [
+        {
+          "name": "/watsonbot05%40gmail.com_dev/Assistant-Function/Weather-Connection",
+          "type": "cloud_function",
+          "parameters": {
+            "object_of_interest": "<? $Location ?>"
+          },
+          "credentials": "$credentials",
+          "result_variable": "$response"
+        }
+      ],
+      "context": {
+        "credentials": {
+          "api_key": "f2a23cdb-5947-4a67-a960-4eef2a9d2a5d:dfXh7zrBUgXqkG51zTGmL3gaXUi57KToRgG7HAOx8qWbgmb0U4E1UcMo7Aul2Hh6"
+        },
+        "object_of_interest": "@object_of_interest"
+      },
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1563804729901"
+      },
+      "conditions": "#Weather_Information",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1563799055926",
+      "digress_out": "allow_all",
+      "previous_sibling": "Welcome",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "digress_in": "returns",
+      "dialog_node": "Anything else",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_1_1563799055926"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "945aaec1-0727-4232-a071-7964f9fd559e",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "disambiguation": {
+      "enabled": true,
+      "randomize": true
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
