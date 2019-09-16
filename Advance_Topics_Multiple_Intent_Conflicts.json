@@ -1,0 +1,196 @@
+{
+  "name": "Advance_Topics copy copy",
+  "intents": [
+    {
+      "intent": "Reset_Password_Gmail",
+      "examples": [
+        {
+          "text": "I want to reset password in gmail"
+        },
+        {
+          "text": "Help me in resetting my gmail password"
+        },
+        {
+          "text": "How can I reset my gmail password"
+        }
+      ],
+      "description": "Resetting password in Outlook"
+    },
+    {
+      "intent": "Unlock_Password",
+      "examples": [
+        {
+          "text": "Unlock password"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Reset_Password_Outlook",
+      "examples": [
+        {
+          "text": "I want to reset password in Outlook"
+        },
+        {
+          "text": "Help me in resetting my Outlook password"
+        },
+        {
+          "text": "How can I reset my outlook password"
+        }
+      ],
+      "description": "Resetting password in Outlook"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Mailbox",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Outlook",
+          "synonyms": [
+            "Outlook"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-07-10"
+    }
+  },
+  "skill_id": "9dbbddb2-b6ad-4621-ad81-ba1ee31bf50e",
+  "description": "Watson Advance Topics",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Okay, I'll be glad to assist you. Please fill in the required details to reset your gmail password"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "#Reset_Password_Gmail",
+      "user_label": "Do you want to reset Gmail password ?",
+      "dialog_node": "node_5_1568444355435",
+      "previous_sibling": "node_8_1568447785917"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_10_1568447752607"
+    },
+    {
+      "type": "standard",
+      "title": "Disambiguate node ",
+      "output": {
+        "generic": [
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "$intent0label - $intent0score%confidence",
+                "value": {
+                  "input": {
+                    "text": "<?intents[0].intent?>"
+                  }
+                }
+              },
+              {
+                "label": "$intent1label - $intent1score%confidence",
+                "value": {
+                  "input": {
+                    "text": "<?intents[1].intent?>"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "context": {
+        "intent0label": "<? intents[0].intent.replace('_',' ') ?>",
+        "intent0score": "<? T(String).format('%.0f',intents[0].confidence*100) ?>",
+        "intent1label": "<? intents[1].intent.replace('_',' ') ?>",
+        "intent1score": "<? T(String).format('%.0f',intents[0].confidence*100) ?>",
+        "disambiguated": true
+      },
+      "conditions": "intents[1].confidence>0.2 &&  intents[0].confidence<0.95 && $disambiguated!=true",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_8_1568447785917",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Unlock password  in gmail or outlook"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "#Unlock_Password",
+      "dialog_node": "node_10_1568447752607",
+      "previous_sibling": "node_2_1568446374645"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Okay, I'll be glad to assist you. Please fill in the required details to reset your outlook password"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "#Reset_Password_Outlook",
+      "user_label": "Do you want to reset Outlook password ?",
+      "dialog_node": "node_2_1568446374645",
+      "previous_sibling": "node_5_1568444355435"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "context": {
+        "disambiguated": null
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "9dbbddb2-b6ad-4621-ad81-ba1ee31bf50e",
+  "counterexamples": [],
+  "system_settings": {
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}

@@ -1,0 +1,316 @@
+{
+  "name": "Advance_Topics-Slots/Digression",
+  "intents": [
+    {
+      "intent": "Reset_Password",
+      "examples": [
+        {
+          "text": "I want to reset password"
+        },
+        {
+          "text": "Reset Password"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Configure_Out_Of_Office",
+      "examples": [
+        {
+          "text": "Configure out of office"
+        },
+        {
+          "text": "Add out of office in outlook"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-location",
+      "values": []
+    },
+    {
+      "entity": "Outlook_Version",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Outlook_2016",
+          "synonyms": [
+            "Outlook 2016"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Outlook_2013",
+          "synonyms": [
+            "Outlook 2013"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Mailbox",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Gmail",
+          "synonyms": [
+            "gmail"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Outlook",
+          "synonyms": [
+            "Outlook"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-07-10"
+    }
+  },
+  "skill_id": "4f9af0d9-5d9a-454e-a6b9-032b7ebbdebe",
+  "webhooks": [
+    {
+      "url": "https://eu-gb.functions.cloud.ibm.com/api/v1/web/watsonbot05%40gmail.com_dev/Assistant-Function/Weather-Connection.json",
+      "name": "main_webhook",
+      "headers": []
+    }
+  ],
+  "description": "Including Banking, Insurance, IT UseCases and Features like Weather, Stock Market, Location",
+  "dialog_nodes": [
+    {
+      "type": "slot",
+      "title": "slot_1_1568625844335",
+      "output": {},
+      "parent": "node_6_1568625242777",
+      "variable": "$Account",
+      "dialog_node": "slot_1_1568625844335",
+      "previous_sibling": "handler_1_1568625843545"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_6_1568625242777",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1568625843545"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Outlook 16 Document"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1566390218563",
+      "conditions": "@Outlook_Version:Outlook_2016",
+      "dialog_node": "node_8_1568620442911",
+      "previous_sibling": "node_2_1568620416840"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Outlook 13 Document"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1566390218563",
+      "conditions": "@Outlook_Version:Outlook_2013",
+      "dialog_node": "node_2_1568620416840"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Password Reset for Gmail account"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_1_1568625844335",
+      "conditions": "@Mailbox:Gmail",
+      "event_name": "filled",
+      "dialog_node": "handler_6_1568626045219",
+      "previous_sibling": "handler_3_1568625844342"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Password Reset for Outlook Account"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_1_1568625844335",
+      "conditions": "@Mailbox:Outlook",
+      "event_name": "filled",
+      "dialog_node": "handler_6_1568626055475",
+      "previous_sibling": "handler_6_1568626045219"
+    },
+    {
+      "type": "event_handler",
+      "title": "handler_3_1568625844342",
+      "output": {
+        "text": {
+          "values": [
+            "Please specify the account for which you want to reset password<br><br>Gmail<br>Outlook"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_1_1568625844335",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1568625844342",
+      "previous_sibling": "handler_4_1568625844342"
+    },
+    {
+      "type": "event_handler",
+      "title": "handler_4_1568625844342",
+      "output": {},
+      "parent": "slot_1_1568625844335",
+      "context": {
+        "Account": "@Mailbox"
+      },
+      "conditions": "@Mailbox",
+      "event_name": "input",
+      "dialog_node": "handler_4_1568625844342"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "digress_in": "returns",
+      "dialog_node": "Anything else",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_6_1568625242777"
+    },
+    {
+      "type": "standard",
+      "title": "Configure Out Of Office ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sure, I will be glad to assist you on this request.<br><br>\nIf you can specify the version of Outlook client available on your computer.<br><br><mct:input>Outlook 2013</mct:input><br><mct:input>Outlook 2016</mct:input><br><mct:input>Not Sure</mct:input>"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Configure_Out_Of_Office",
+      "digress_in": "returns",
+      "dialog_node": "node_7_1566390218563",
+      "digress_out": "allow_all",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "frame",
+      "title": "Reset Password",
+      "output": {
+        "generic": []
+      },
+      "conditions": "#Reset_Password",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_6_1568625242777",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_7_1566390218563",
+      "digress_out_slots": "allow_returning"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "4f9af0d9-5d9a-454e-a6b9-032b7ebbdebe",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    },
+    "disambiguation": {
+      "prompt": "What do you want to do",
+      "enabled": false,
+      "randomize": true,
+      "max_suggestions": 2
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
