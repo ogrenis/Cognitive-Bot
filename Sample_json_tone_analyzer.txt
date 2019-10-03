@@ -1,0 +1,24 @@
+{
+  "output": {
+    "text": {
+      "values": [],
+      "selection_policy": "sequential"
+    }
+  },
+  "actions": [
+    {
+      "name": "/watsonbot05%40gmail.com_dev/Assistant-Function/Tone_Analyzer",
+      "type": "cloud_function",
+      "parameters": {
+        "text": "<? $text ?>"
+      },
+      "credentials": "$credentials",
+      "result_variable": "$response"
+    }
+  ],
+  "context": {
+    "credentials": {
+      "api_key": "f2a23cdb-5947-4a67-a960-4eef2a9d2a5d:dfXh7zrBUgXqkG51zTGmL3gaXUi57KToRgG7HAOx8qWbgmb0U4E1UcMo7Aul2Hh6"
+    }
+  }
+}
