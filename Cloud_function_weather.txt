@@ -1,0 +1,13 @@
+let rp = require('request-promise')
+function main(params) {
+    const options = {
+        uri: "http://api.openweathermap.org/data/2.5/weather?q=" + encodeURIComponent(params.object_of_interest)+ "&units=metric&APPID=19e8588cb3d7d0623e3a5a8ec529232f" ,
+        json: true
+    }
+    return rp(options)
+    .then(res => {
+        WeatherReport = "Current Temperature : " +res.main.temp+ ", Pressure : " + res.main.pressure + ", Humidity : " + res.main.humidity + ", temp_min : " + res.main.temp_min + " , temp_max : " + res.main.temp_max
+        return { WeatherReport
+        } 
+    })
+}

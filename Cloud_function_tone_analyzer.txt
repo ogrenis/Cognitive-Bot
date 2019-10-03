@@ -1,0 +1,18 @@
+function main(param) {
+const ToneAnalyzerV3 = require('ibm-watson/tone-analyzer/v3');
+const toneAnalyzer = new ToneAnalyzerV3({
+  version: '2017-09-21',
+  url: 'https://gateway-lon.watsonplatform.net/tone-analyzer/api',
+  iam_apikey: 'yM29hpdmL6_VDZsxcynOnDy9pl8NW2DVUssu--0i4_Ru',
+  disable_ssl_verification: true,
+});
+const toneParams = {
+  tone_input: { 'text': param.text },
+  content_type: 'application/json',
+};
+return toneAnalyzer.tone(toneParams)
+  .then(toneAnalysis => {
+    return {toneAnalysis  
+    }
+  });
+}
